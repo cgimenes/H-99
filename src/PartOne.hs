@@ -26,7 +26,9 @@ problem4 []     = 0
 problem4 (_:xs) = 1 + problem4 xs
 
 -- Reverse a list. 
-problem5 = error "Not implemented"
+problem5 :: [x] -> [x]
+problem5 [] = []
+problem5 (x:xs) = problem5 xs ++ [x]
 
 -- Find out whether a list is a palindrome. A palindrome can be read forward or backward; e.g. (x a m a x). 
 problem6 = error "Not implemented"

@@ -5,7 +5,12 @@ import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase)
 
 partOneTestSuite :: TestTree
-partOneTestSuite = testGroup "Part One" [problem1TestSuite, problem2TestSuite, problem3TestSuite, problem4TestSuite]
+partOneTestSuite = testGroup "Part One" [
+  problem1TestSuite, 
+  problem2TestSuite, 
+  problem3TestSuite, 
+  problem4TestSuite, 
+  problem5TestSuite]
 
 -- First problem tests
 problem1TestSuite :: TestTree
@@ -47,3 +52,12 @@ lengthOfIntegerList =
 lengthOfString =
   testCase "Length of 'Hello, world!' is 13" $ assertEqual [] 13 (problem4 "Hello, world!")
   
+-- Fifth problem tests
+problem5TestSuite :: TestTree
+problem5TestSuite = testGroup "Fifth problem" [reverseIntegerList, reverseString]
+
+reverseIntegerList =
+  testCase "Reverse of [1,2,3,4] is [4,3,2,1]" $ assertEqual [] [4,3,2,1] (problem5 [1,2,3,4])
+
+reverseString =
+  testCase "Reverse of 'A man, a plan, a canal, panama!' is '!amanap ,lanac a ,nalp a ,nam A'" $ assertEqual [] "!amanap ,lanac a ,nalp a ,nam A" (problem5 "A man, a plan, a canal, panama!")
