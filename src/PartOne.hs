@@ -21,7 +21,9 @@ problem3 (_:xs) k = problem3 xs (k - 1)
 problem3 _ _      = error "Index out of bounds"
 
 -- Find the number of elements of a list. 
-problem4 = error "Not implemented"
+problem4 :: [x] -> Integer
+problem4 []     = 0
+problem4 (_:xs) = 1 + problem4 xs
 
 -- Reverse a list. 
 problem5 = error "Not implemented"

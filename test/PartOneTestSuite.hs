@@ -5,7 +5,7 @@ import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase)
 
 partOneTestSuite :: TestTree
-partOneTestSuite = testGroup "Part One" [problem1TestSuite, problem2TestSuite, problem3TestSuite]
+partOneTestSuite = testGroup "Part One" [problem1TestSuite, problem2TestSuite, problem3TestSuite, problem4TestSuite]
 
 -- First problem tests
 problem1TestSuite :: TestTree
@@ -36,3 +36,14 @@ elementAtOfIntegerList =
 
 elementAtOfString =
   testCase "Element 5 of 'haskell' is 'e'" $ assertEqual [] 'e' (problem3 "haskell" 5)
+
+-- Fourth problem tests
+problem4TestSuite :: TestTree
+problem4TestSuite = testGroup "Fourth problem" [lengthOfIntegerList, lengthOfString]
+
+lengthOfIntegerList =
+  testCase "Length of [123, 456, 789] is 3" $ assertEqual [] 3 (problem4 [123, 456, 789])
+
+lengthOfString =
+  testCase "Length of 'Hello, world!' is 13" $ assertEqual [] 13 (problem4 "Hello, world!")
+  
