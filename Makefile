@@ -6,3 +6,6 @@ run:
 
 build:
 	stack build --test --file-watch
+
+indent:
+	sh ./hindent-all
