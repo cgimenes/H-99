@@ -32,7 +32,7 @@ problem3TestSuite :: TestTree
 problem3TestSuite = testGroup "Third problem" [elementAtOfIntegerList, elementAtOfString]
 
 elementAtOfIntegerList =
-  testCase "Element 2 of [1,2,3] is 2" $ assertEqual [] 3 (problem3 [1,2,3] 2)
+  testCase "Element 2 of [1,2,3] is 2" $ assertEqual [] 2 (problem3 [1,2,3] 2)
 
 elementAtOfString =
-  testCase "Element 5 of 'haskell' is 'e" $ assertEqual [] 'y' (problem3 "haskell" 5)
+  testCase "Element 5 of 'haskell' is 'e'" $ assertEqual [] 'e' (problem3 "haskell" 5)
