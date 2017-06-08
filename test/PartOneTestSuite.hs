@@ -14,6 +14,7 @@ partOneTestSuite =
     , problem4TestSuite
     , problem5TestSuite
     , problem6TestSuite
+    , problem8TestSuite
     ]
 
 -- First problem tests
@@ -101,3 +102,11 @@ isStringPalindrome =
 isBigIntegerListPalindrome =
   testCase "[1,2,4,8,16,8,4,2,1] is a palindrome" $
   assertEqual [] True (problem6 [1, 2, 4, 8, 16, 8, 4, 2, 1])
+
+-- Eigth problem tests
+problem8TestSuite :: TestTree
+problem8TestSuite = testGroup "Eigth problem" [compressString]
+
+compressString =
+  testCase "'aaaabccaadeeee' compressed is 'abcade'" $
+  assertEqual [] "abcade" (problem8 "aaaabccaadeeee")

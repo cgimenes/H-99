@@ -39,7 +39,9 @@ problem6 x = x == reverse x
 problem7 = error "Not implemented"
 
 -- Eliminate consecutive duplicates of list elements. 
-problem8 = error "Not implemented"
+problem8 :: Eq a => [a] -> [a]
+problem8 [] = []
+problem8 (x:xs) = x : (problem8 $ dropWhile (== x) xs)
 
 -- Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists. 
 problem9 = error "Not implemented"
