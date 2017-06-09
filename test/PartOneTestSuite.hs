@@ -16,9 +16,10 @@ partOneTestSuite =
     , problem6TestSuite
     , problem7TestSuite
     , problem8TestSuite
+    , problem9TestSuite
     ]
 
--- First problem tests
+-- First problem test suite
 problem1TestSuite :: TestTree
 problem1TestSuite =
   testGroup "First problem" [lastOfIntegerList, lastOfCharList]
@@ -30,7 +31,7 @@ lastOfCharList =
   testCase "Last of ['x','y','z'] is 'z'" $
   assertEqual [] 'z' (problem1 ['x', 'y', 'z'])
 
--- Second problem tests
+-- Second problem test suite
 problem2TestSuite :: TestTree
 problem2TestSuite =
   testGroup "Second problem" [lastButOneOfIntegerList, lastButOneOfCharList]
@@ -43,7 +44,7 @@ lastButOneOfCharList =
   testCase "Last but one of 'a'..'z' is 'y'" $
   assertEqual [] 'y' (problem2 ['x' .. 'z'])
 
--- Third problem tests
+-- Third problem test suite
 problem3TestSuite :: TestTree
 problem3TestSuite =
   testGroup "Third problem" [elementAtOfIntegerList, elementAtOfString]
@@ -55,7 +56,7 @@ elementAtOfString =
   testCase "Element 5 of 'haskell' is 'e'" $
   assertEqual [] 'e' (problem3 "haskell" 5)
 
--- Fourth problem tests
+-- Fourth problem test suite
 problem4TestSuite :: TestTree
 problem4TestSuite =
   testGroup "Fourth problem" [lengthOfIntegerList, lengthOfString]
@@ -68,7 +69,7 @@ lengthOfString =
   testCase "Length of 'Hello, world!' is 13" $
   assertEqual [] 13 (problem4 "Hello, world!")
 
--- Fifth problem tests
+-- Fifth problem test suite
 problem5TestSuite :: TestTree
 problem5TestSuite =
   testGroup "Fifth problem" [reverseIntegerList, reverseString]
@@ -85,7 +86,7 @@ reverseString =
     "!amanap ,lanac a ,nalp a ,nam A"
     (problem5 "A man, a plan, a canal, panama!")
 
--- Sixth problem tests
+-- Sixth problem test suite
 problem6TestSuite :: TestTree
 problem6TestSuite =
   testGroup
@@ -104,7 +105,7 @@ isBigIntegerListPalindrome =
   testCase "[1,2,4,8,16,8,4,2,1] is a palindrome" $
   assertEqual [] True (problem6 [1, 2, 4, 8, 16, 8, 4, 2, 1])
 
--- Seventh problem tests
+-- Seventh problem test suite
 problem7TestSuite :: TestTree
 problem7TestSuite =
   testGroup
@@ -126,10 +127,23 @@ flattenEmptyList =
   testCase "(List []) flattened is []" $
   assertEqual [] ([] :: [Int]) (problem7 (List []))
 
--- Eigth problem tests
+-- Eigth problem test suite
 problem8TestSuite :: TestTree
 problem8TestSuite = testGroup "Eigth problem" [compressString]
 
 compressString =
   testCase "'aaaabccaadeeee' compressed is 'abcade'" $
   assertEqual [] "abcade" (problem8 "aaaabccaadeeee")
+
+-- Nineth problem test suite
+problem9TestSuite :: TestTree
+problem9TestSuite = testGroup "Nineth problem" [packCharList]
+
+packCharList =
+  testCase
+    "['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'] packed is ['aaaa','b','cc','aa','d','eeee']" $
+  assertEqual
+    []
+    ["aaaa", "b", "cc", "aa", "d", "eeee"]
+    (problem9
+       ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'])

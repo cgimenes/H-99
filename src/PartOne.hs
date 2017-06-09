@@ -10,7 +10,8 @@ problem1 [] = error "Empty list"
 problem1 [x] = x
 problem1 (_:xs) = problem1 xs
 
--- Find the last but one element of a list. (not solved by me!)
+-- Find the last but one element of a list.
+-- This problem was not solved by me!
 problem2 :: [a] -> a
 problem2 [] = error "Empty list"
 problem2 [x] = error "Too few elements"
@@ -39,19 +40,28 @@ problem5 (x:xs) = (problem5 xs) ++ [x]
 problem6 :: Eq a => [a] -> Bool
 problem6 x = x == reverse x
 
--- Flatten a nested list structure. (not solved by me!)
+-- Flatten a nested list structure.
+-- This problem was not solved by me!
 problem7 :: NestedList a -> [a]
 problem7 (Elem x) = [x]
 problem7 (List (x:xs)) = problem7 x ++ problem7 (List xs)
 problem7 (List []) = []
 
--- Eliminate consecutive duplicates of list elements. (not solved by me!)
+-- Eliminate consecutive duplicates of list elements.
+-- This problem was not solved by me!
 problem8 :: Eq a => [a] -> [a]
 problem8 [] = []
 problem8 (x:xs) = x : (problem8 $ dropWhile (== x) xs)
 
 -- Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists. 
-problem9 = error "Not implemented"
+-- This problem was not solved by me!
+problem9 :: (Eq a) => [a] -> [[a]]
+problem9 [] = []
+problem9 [x] = [[x]]
+problem9 (x:xs) =
+  if x `elem` (head (problem9 xs))
+    then (x : (head (problem9 xs))) : (tail (problem9 xs))
+    else [x] : (problem9 xs)
 
 -- Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E. 
 problem10 = error "Not implemented"
