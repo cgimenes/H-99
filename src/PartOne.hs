@@ -1,12 +1,16 @@
 module PartOne where
 
+data NestedList a
+  = Elem a
+  | List [NestedList a]
+
 -- Find the last element of a list. 
 problem1 :: [a] -> a
 problem1 [] = error "Empty list"
 problem1 [x] = x
 problem1 (_:xs) = problem1 xs
 
--- Find the last but one element of a list. 
+-- Find the last but one element of a list. (not solved by me!)
 problem2 :: [a] -> a
 problem2 [] = error "Empty list"
 problem2 [x] = error "Too few elements"
@@ -35,10 +39,13 @@ problem5 (x:xs) = (problem5 xs) ++ [x]
 problem6 :: Eq a => [a] -> Bool
 problem6 x = x == reverse x
 
--- Flatten a nested list structure. 
-problem7 = error "Not implemented"
+-- Flatten a nested list structure. (not solved by me!)
+problem7 :: NestedList a -> [a]
+problem7 (Elem x) = [x]
+problem7 (List (x:xs)) = problem7 x ++ problem7 (List xs)
+problem7 (List []) = []
 
--- Eliminate consecutive duplicates of list elements. 
+-- Eliminate consecutive duplicates of list elements. (not solved by me!)
 problem8 :: Eq a => [a] -> [a]
 problem8 [] = []
 problem8 (x:xs) = x : (problem8 $ dropWhile (== x) xs)

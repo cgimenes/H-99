@@ -14,6 +14,7 @@ partOneTestSuite =
     , problem4TestSuite
     , problem5TestSuite
     , problem6TestSuite
+    , problem7TestSuite
     , problem8TestSuite
     ]
 
@@ -102,6 +103,28 @@ isStringPalindrome =
 isBigIntegerListPalindrome =
   testCase "[1,2,4,8,16,8,4,2,1] is a palindrome" $
   assertEqual [] True (problem6 [1, 2, 4, 8, 16, 8, 4, 2, 1])
+
+-- Seventh problem tests
+problem7TestSuite :: TestTree
+problem7TestSuite =
+  testGroup
+    "Seventh problem"
+    [flattenListWithOneElement, flattenList, flattenEmptyList]
+
+flattenListWithOneElement =
+  testCase "(Elem 5) flattened is [5]" $ assertEqual [] [5] (problem7 (Elem 5))
+
+flattenList =
+  testCase
+    "(List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]]) flattened is [1,2,3,4,5]" $
+  assertEqual
+    []
+    [1, 2, 3, 4, 5]
+    (problem7 (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]]))
+
+flattenEmptyList =
+  testCase "(List []) flattened is []" $
+  assertEqual [] ([] :: [Int]) (problem7 (List []))
 
 -- Eigth problem tests
 problem8TestSuite :: TestTree
