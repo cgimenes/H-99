@@ -49,7 +49,7 @@ problem7 (List []) = []
 
 problem7' :: NestedList a -> [a]
 problem7' (Elem x) = [x]
-problem7' (List xs) =  foldr (++) [] $ map problem7' xs
+problem7' (List xs) = foldr (++) [] $ map problem7' xs
 
 -- Eliminate consecutive duplicates of list elements.
 -- This problem was not solved by me!
@@ -58,17 +58,28 @@ problem8 [] = []
 problem8 (x:xs) = x : (problem8 $ dropWhile (== x) xs)
 
 problem8' :: Eq a => [a] -> [a]
-problem8' x = foldr (\a b -> if a == (head b) then b else a:b) [last x] x
+problem8' x =
+  foldr
+    (\a b ->
+       if a == (head b)
+         then b
+         else a : b)
+    [last x]
+    x
 
 -- Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists.
 -- This problem was not solved by me!
 problem9 :: (Eq a) => [a] -> [[a]]
 problem9 = foldr func []
-    where func x []     = [[x]]
-          func x (y:xs) =
-              if x == (head y) then ((x:y):xs) else ([x]:y:xs)
+  where
+    func x [] = [[x]]
+    func x (y:xs) =
+      if x == (head y)
+        then ((x : y) : xs)
+        else ([x] : y : xs)
 
 -- Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 problem10 :: Eq a => [a] -> [(Int, a)]
 problem10 = (map func) . problem9
-    where func x = (length x, head x)
+  where
+    func x = (length x, head x)
