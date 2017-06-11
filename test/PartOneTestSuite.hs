@@ -17,6 +17,7 @@ partOneTestSuite =
     , problem7TestSuite
     , problem8TestSuite
     , problem9TestSuite
+    , problem10TestSuite
     ]
 
 -- First problem test suite
@@ -135,9 +136,9 @@ compressString =
   testCase "'aaaabccaadeeee' compressed is 'abcade'" $
   assertEqual [] "abcade" (problem8 "aaaabccaadeeee")
 
--- Nineth problem test suite
+-- Ninth problem test suite
 problem9TestSuite :: TestTree
-problem9TestSuite = testGroup "Nineth problem" [packCharList]
+problem9TestSuite = testGroup "Ninth problem" [packCharList]
 
 packCharList =
   testCase
@@ -147,3 +148,11 @@ packCharList =
     ["aaaa", "b", "cc", "aa", "d", "eeee"]
     (problem9
        ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'])
+
+-- Tenth problem test suite
+problem10TestSuite :: TestTree
+problem10TestSuite = testGroup "Tenth problem" [encodeString]
+
+encodeString =
+  testCase "'aaaabccaadeeee' encoded is [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]" $
+  assertEqual [] [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] (problem10 "aaaabccaadeeee")
