@@ -11,7 +11,8 @@ problem32 x y
   | otherwise = problem32 y $ mod x y
 
 -- Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.
-problem33 = error "Not implemented!"
+problem33 :: Integer -> Integer -> Bool
+problem33 x y = gcd x y == 1
 
 -- Calculate Euler's totient function phi(m).
 problem34 = error "Not implemented!"

@@ -10,7 +10,7 @@ partFourTestSuite =
     "Part Four"
     [ problem31TestSuite
     , problem32TestSuite
-    -- , problem33TestSuite
+    , problem33TestSuite
     -- , problem34TestSuite
     -- , problem35TestSuite
     -- , problem36TestSuite
@@ -37,3 +37,9 @@ greatestCommonDivisor =
     []
     [9, 3, 3]
     ([problem32 36 63, problem32 (-3) (-6), problem32 (-3) 6])
+
+-- Thirty-third problem test suite
+problem33TestSuite :: TestTree
+problem33TestSuite = testGroup "Thirty-third problem" [coprime]
+
+coprime = testCase "Coprime" $ assertEqual [] True (problem33 35 64)
