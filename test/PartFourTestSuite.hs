@@ -9,7 +9,7 @@ partFourTestSuite =
   testGroup
     "Part Four"
     [ problem31TestSuite
-    -- , problem32TestSuite
+    , problem32TestSuite
     -- , problem33TestSuite
     -- , problem34TestSuite
     -- , problem35TestSuite
@@ -21,10 +21,19 @@ partFourTestSuite =
     -- , problem41TestSuite
     ]
 
--- First problem test suite
+-- Thirty-first problem test suite
 problem31TestSuite :: TestTree
-problem31TestSuite =
-  testGroup "Thirty-first problem" [isPrime]
+problem31TestSuite = testGroup "Thirty-first problem" [primality]
 
-isPrime =
-  testCase "Is prime" $ assertEqual [] True (problem31 7)
+primality = testCase "Primality" $ assertEqual [] True (problem31 7)
+
+-- Thirty-second problem test suite
+problem32TestSuite :: TestTree
+problem32TestSuite = testGroup "Thirty-second problem" [greatestCommonDivisor]
+
+greatestCommonDivisor =
+  testCase "GreatestCommonDivisor" $
+  assertEqual
+    []
+    [9, 3, 3]
+    ([problem32 36 63, problem32 (-3) (-6), problem32 (-3) 6])
