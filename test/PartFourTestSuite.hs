@@ -25,7 +25,23 @@ partFourTestSuite =
 problem31TestSuite :: TestTree
 problem31TestSuite = testGroup "Thirty-first problem" [primality]
 
-primality = testCase "Primality" $ assertEqual [] True (problem31 7)
+primality =
+  testCase "Primality" $
+  assertEqual
+    []
+    [True, True, True, True, True, True, True, True, True, True, False]
+    ([ problem31 2
+     , problem31 3
+     , problem31 5
+     , problem31 7
+     , problem31 11
+     , problem31 13
+     , problem31 17
+     , problem31 19
+     , problem31 23
+     , problem31 29
+     , problem31 35
+     ])
 
 -- Thirty-second problem test suite
 problem32TestSuite :: TestTree

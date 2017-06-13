@@ -2,7 +2,18 @@ module PartFour where
 
 -- Determine whether a given integer number is prime.
 problem31 :: Integral a => a -> Bool
-problem31 _ = True
+problem31 x
+  | x < 2 = False
+  | x <= 3 = True
+  | mod x 2 == 0 = False
+  | mod x 3 == 0 = False
+  | otherwise = calc 5
+  where
+    calc i
+      | (i * i) > x = True
+      | mod x i == 0 = False
+      | mod x (i + 2) == 0 = False
+      | otherwise = calc $ i + 6
 
 -- Determine the greatest common divisor of two positive integer numbers. Use Euclid's algorithm.
 problem32 :: Integer -> Integer -> Integer
