@@ -13,7 +13,7 @@ partFourTestSuite =
     , problem33TestSuite
     , problem34TestSuite
     , problem35TestSuite
-    -- , problem36TestSuite
+    , problem36TestSuite
     -- , problem37TestSuite
     -- , problem38TestSuite
     -- , problem39TestSuite
@@ -70,4 +70,13 @@ totient = testCase "Euler's totient" $ assertEqual [] 4 (problem34 10)
 problem35TestSuite :: TestTree
 problem35TestSuite = testGroup "Thirty-fifth problem" [integerFactorization]
 
-integerFactorization = testCase "Integer factorization" $ assertEqual [] [3, 3, 5, 7] (problem35 315)
+integerFactorization =
+  testCase "Integer factorization" $ assertEqual [] [3, 3, 5, 7] (problem35 315)
+
+-- Thirty-sixth problem test suite
+problem36TestSuite :: TestTree
+problem36TestSuite = testGroup "Thirty-sixth problem" [integerFactorizationMult]
+
+integerFactorizationMult =
+  testCase "Integer factorization and their multiplicity" $
+  assertEqual [] [(3, 2), (5, 1), (7, 1)] (problem36 315)

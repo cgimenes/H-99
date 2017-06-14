@@ -125,9 +125,9 @@ flattenEmptyList =
   testCase "Flatten empty list" $
   assertEqual [] ([] :: [Int]) (problem7 (List []))
 
--- Eigth problem test suite
+-- Eighth problem test suite
 problem8TestSuite :: TestTree
-problem8TestSuite = testGroup "Eigth problem" [compressString]
+problem8TestSuite = testGroup "Eighth problem" [compressString]
 
 compressString =
   testCase "Compress string" $
