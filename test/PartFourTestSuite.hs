@@ -11,8 +11,8 @@ partFourTestSuite =
     [ problem31TestSuite
     , problem32TestSuite
     , problem33TestSuite
-    -- , problem34TestSuite
-    -- , problem35TestSuite
+    , problem34TestSuite
+    , problem35TestSuite
     -- , problem36TestSuite
     -- , problem37TestSuite
     -- , problem38TestSuite
@@ -59,3 +59,15 @@ problem33TestSuite :: TestTree
 problem33TestSuite = testGroup "Thirty-third problem" [coprime]
 
 coprime = testCase "Coprime" $ assertEqual [] True (problem33 35 64)
+
+-- Thirty-fourth problem test suite
+problem34TestSuite :: TestTree
+problem34TestSuite = testGroup "Thirty-fourth problem" [totient]
+
+totient = testCase "Euler's totient" $ assertEqual [] 4 (problem34 10)
+
+-- Thirty-fifth problem test suite
+problem35TestSuite :: TestTree
+problem35TestSuite = testGroup "Thirty-fifth problem" [integerFactorization]
+
+integerFactorization = testCase "Integer factorization" $ assertEqual [] [3, 3, 5, 7] (problem35 315)
