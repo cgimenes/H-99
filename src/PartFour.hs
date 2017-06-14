@@ -29,7 +29,16 @@ problem33 x y = gcd x y == 1
 problem34 = error "Not implemented!"
 
 -- Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.
-problem35 = error "Not implemented!"
+problem35 :: Integer -> [Integer]
+problem35 x = problem32' [x]
+  where 
+    problem32' (x:xs)
+      | problem31 x = xs ++ [x]
+      | mod x 2 == 0 = problem32' $ (div x 2):xs ++ [2]
+      | mod x 3 == 0 = problem32' $ (div x 3):xs ++ [3]
+      | mod x 5 == 0 = problem32' $ (div x 5):xs ++ [5]
+      | mod x 7 == 0 = problem32' $ (div x 7):xs ++ [7]
+      | otherwise = error "What happened?"
 
 -- Determine the prime factors of a given positive integer.
 problem36 = error "Not implemented!"
