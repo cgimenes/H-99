@@ -28,11 +28,21 @@ problem33 :: Integer -> Integer -> Bool
 problem33 x y = gcd x y == 1
 
 -- Calculate Euler's totient function phi(m).
-problem34 = error "Not implemented!"
+problem34 :: Integer -> Integer
+problem34 1 = 1
+problem34 x = sum $ map func [1..x-1]
+  where
+    func y
+      | problem33 x y = 1
+      | otherwise = 0 
+
+problem34' :: Integer -> Int
+problem34' 1 = 1
+problem34' x = length $ filter (problem33 x) [1..x-1]
 
 -- Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.
 problem35 :: Integer -> [Integer]
-problem35 x = problem32' [x]
+problem35 n = problem32' [n]
   where
     problem32' (x:xs)
       | problem31 x = xs ++ [x]
@@ -44,7 +54,7 @@ problem35 x = problem32' [x]
 
 -- Determine the prime factors of a given positive integer.
 problem36 :: Integer -> [(Integer, Int)]
-problem36 x = map swap $ problem10 $ problem35 x
+problem36 n = map swap $ problem10 $ problem35 n
   where
     swap (x, y) = (y, x)
 

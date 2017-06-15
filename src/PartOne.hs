@@ -14,7 +14,7 @@ problem1 (_:xs) = problem1 xs
 -- This problem was not solved by me!
 problem2 :: [a] -> a
 problem2 [] = error "Empty list"
-problem2 [x] = error "Too few elements"
+problem2 [_] = error "Too few elements"
 problem2 (x:xs) =
   if length xs == 1
     then x
