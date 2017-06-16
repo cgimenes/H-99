@@ -16,7 +16,7 @@ partFourTestSuite =
     , problem36TestSuite
     -- , problem37TestSuite
     -- , problem38TestSuite
-    -- , problem39TestSuite
+    , problem39TestSuite
     -- , problem40TestSuite
     -- , problem41TestSuite
     ]
@@ -80,3 +80,9 @@ problem36TestSuite = testGroup "Thirty-sixth problem" [integerFactorizationMult]
 integerFactorizationMult =
   testCase "Integer factorization and their multiplicity" $
   assertEqual [] [(3, 2), (5, 1), (7, 1)] (problem36 315)
+
+-- Thirty-ninth problem test suite
+problem39TestSuite :: TestTree
+problem39TestSuite = testGroup "Thirty-ninth problem" [primesBetweenInterval]
+
+primesBetweenInterval = testCase "List of primes between interval" $ assertEqual [] [11,13,17,19] (problem39 10 20)

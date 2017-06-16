@@ -65,7 +65,8 @@ problem37 = error "Not implemented!"
 problem38 = error "Not implemented!"
 
 -- A list of prime numbers.
-problem39 = error "Not implemented!"
+problem39 :: Integer -> Integer -> [Integer]
+problem39 x y = filter problem31 [x..y]
 
 -- Goldbach's conjecture.
 problem40 = error "Not implemented!"
