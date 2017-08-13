@@ -30,15 +30,15 @@ problem33 x y = gcd x y == 1
 -- Calculate Euler's totient function phi(m).
 problem34 :: Integer -> Integer
 problem34 1 = 1
-problem34 x = sum $ map func [1..x-1]
+problem34 x = sum $ map func [1 .. x - 1]
   where
     func y
       | problem33 x y = 1
-      | otherwise = 0 
+      | otherwise = 0
 
 problem34' :: Integer -> Int
 problem34' 1 = 1
-problem34' x = length $ filter (problem33 x) [1..x-1]
+problem34' x = length $ filter (problem33 x) [1 .. x - 1]
 
 -- Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.
 problem35 :: Integer -> [Integer]
@@ -66,10 +66,15 @@ problem38 = error "Not implemented!"
 
 -- A list of prime numbers.
 problem39 :: Integer -> Integer -> [Integer]
-problem39 x y = filter problem31 [x..y]
+problem39 x y = filter problem31 [x .. y]
 
 -- Goldbach's conjecture.
-problem40 = error "Not implemented!"
+problem40 :: Integer -> (Integer, Integer)
+problem40 n
+  | n < 3 = error "Number too small!"
+  | otherwise = head [(a, b) | a <- primes, b <- primes, a + b == n]
+  where
+    primes = problem39 2 (n - 2)
 
 -- Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition. 
 problem41 = error "Not implemented!"
