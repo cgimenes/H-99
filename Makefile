@@ -1,11 +1,11 @@
 watch:
 	stack build --test --file-watch
 
-run:
+test:
 	stack test
 
 build:
-	stack build --test --file-watch
+	stack build --test
 
 indent:
 	sh ./hindent-all

@@ -77,4 +77,8 @@ problem40 n
     primes = problem39 2 (n - 2)
 
 -- Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition. 
-problem41 = error "Not implemented!"
+problem41 :: Integer -> Integer -> [(Integer, Integer)]
+problem41 x y = map problem40 $ filter even [x .. y]
+
+problem41' :: Integer -> Integer -> Integer -> [(Integer, Integer)]
+problem41' x y m = filter (\(a, b) -> a > m && b > m) $ problem41 x y

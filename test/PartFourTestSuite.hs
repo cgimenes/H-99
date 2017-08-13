@@ -18,7 +18,7 @@ partFourTestSuite =
     -- , problem38TestSuite
     , problem39TestSuite
     , problem40TestSuite
-    -- , problem41TestSuite
+    , problem41TestSuite
     ]
 
 -- Thirty-first problem test suite
@@ -95,3 +95,22 @@ problem40TestSuite = testGroup "Forty problem" [goldbachConjecture]
 
 goldbachConjecture =
   testCase "Goldbach's conjecture" $ assertEqual [] (5, 23) (problem40 28)
+
+-- Forty-one problem test suite
+problem41TestSuite :: TestTree
+problem41TestSuite =
+  testGroup "Forty-one problem" [goldbachList, goldbachListWithMinimum]
+
+goldbachList =
+  testCase "Goldbach's conjecture list" $
+  assertEqual
+    []
+    [(3, 7), (5, 7), (3, 11), (3, 13), (5, 13), (3, 17)]
+    (problem41 9 20)
+
+goldbachListWithMinimum =
+  testCase "Goldbach's conjecture list with minimum" $
+  assertEqual
+    []
+    [(73, 919), (61, 1321), (67, 1789), (61, 1867)]
+    (problem41' 4 2000 50)
