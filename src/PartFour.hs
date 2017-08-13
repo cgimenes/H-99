@@ -19,9 +19,7 @@ problem31 x
 
 -- Determine the greatest common divisor of two positive integer numbers. Use Euclid's algorithm.
 problem32 :: Integer -> Integer -> Integer
-problem32 x y
-  | y == 0 = abs x
-  | otherwise = problem32 y $ mod x y
+problem32 x y = if y == 0 then abs x else problem32 y $ mod x y
 
 -- Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.
 problem33 :: Integer -> Integer -> Bool
@@ -30,11 +28,7 @@ problem33 x y = gcd x y == 1
 -- Calculate Euler's totient function phi(m).
 problem34 :: Integer -> Integer
 problem34 1 = 1
-problem34 x = sum $ map func [1 .. x - 1]
-  where
-    func y
-      | problem33 x y = 1
-      | otherwise = 0
+problem34 x = sum $ map (\a -> if problem33 x a then 1 else 0) [1 .. x - 1]
 
 problem34' :: Integer -> Int
 problem34' 1 = 1

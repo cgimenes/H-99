@@ -1,3 +1,5 @@
+.PHONY: test
+
 watch:
 	stack build --test --file-watch
 
