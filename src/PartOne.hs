@@ -21,13 +21,13 @@ problem2 (x:xs) =
     else problem2 xs
 
 -- Find the K'th element of a list. The first element in the list is number 1.
-problem3 :: [a] -> Integer -> a
+problem3 :: [a] -> Int -> a
 problem3 (x:_) 1 = x
 problem3 (_:xs) k = problem3 xs (k - 1)
 problem3 _ _ = error "Index out of bounds"
 
 -- Find the number of elements of a list.
-problem4 :: [a] -> Integer
+problem4 :: [a] -> Int
 problem4 [] = 0
 problem4 (_:xs) = 1 + problem4 xs
 
