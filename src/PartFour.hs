@@ -78,9 +78,7 @@ problem39 x y = filter problem31 [x .. y]
 
 -- Goldbach's conjecture.
 problem40 :: Int -> (Int, Int)
-problem40 n
-  | n < 3 = error "Number too small!"
-  | otherwise = head [(a, b) | a <- primes, b <- primes, a + b == n]
+problem40 n = head [(a, b) | a <- primes, b <- primes, a + b == n]
   where
     primes = problem39 2 (n - 2)
 
