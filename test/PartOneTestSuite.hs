@@ -147,10 +147,10 @@ packCharList =
 
 -- Tenth problem test suite
 problem10TestSuite :: TestTree
-problem10TestSuite = testGroup "Tenth problem" [encodeString]
+problem10TestSuite = testGroup "Tenth problem" [runLengthEncode]
 
-encodeString =
-  testCase "Encode string" $
+runLengthEncode =
+  testCase "Run-length encoding" $
   assertEqual
     []
     [(4, 'a'), (1, 'b'), (2, 'c'), (2, 'a'), (1, 'd'), (4, 'e')]
