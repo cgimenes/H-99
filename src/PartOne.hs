@@ -69,7 +69,7 @@ problem8' x =
 
 -- Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists.
 -- This problem was not solved by me!
-problem9 :: (Eq a) => [a] -> [[a]]
+problem9 :: Eq a => [a] -> [[a]]
 problem9 = foldr func []
   where
     func x [] = [[x]]
