@@ -11,7 +11,7 @@ partTwoTestSuite =
     [ problem11TestSuite
     , problem12TestSuite
     , problem13TestSuite
-    -- , problem14TestSuite
+    , problem14TestSuite
     -- , problem15TestSuite
     -- , problem16TestSuite
     -- , problem17TestSuite
@@ -115,3 +115,11 @@ directEncode' =
     , Multiple 4 'e'
     ]
     (problem13' "aaaabccaadeeee")
+
+-- Fourteenth problem test suite
+problem14TestSuite :: TestTree
+problem14TestSuite = testGroup "Fourteenth problem" [duplicate]
+
+duplicate =
+  testCase "Duplicate the elements of a list" $
+  assertEqual [] [1, 1, 2, 2, 3, 3] (problem14 [1, 2, 3])

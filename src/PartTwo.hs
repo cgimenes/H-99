@@ -58,7 +58,8 @@ problem13' (x:xs)
     count = 1 + (length matched)
 
 -- Duplicate the elements of a list.
-problem14 = error "Not implemented yet!"
+problem14 :: [a] -> [a]
+problem14 = concatMap (\x -> replicate 2 x)
 
 -- Replicate the elements of a list a given number of times.
 problem15 = error "Not implemented yet!"
