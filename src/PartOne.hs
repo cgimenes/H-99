@@ -78,6 +78,14 @@ problem9 = foldr func []
         then ((x : y) : xs)
         else ([x] : y : xs)
 
+problem9' :: Eq a => [a] -> [[a]]
+problem9' [] = []
+problem9' (x:xs)
+  | matched == [] = [x] : (problem9' xs)
+  | otherwise = (x : matched) : (problem9' rest)
+  where
+    (matched, rest) = span (== x) xs
+
 -- Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 problem10 :: Eq a => [a] -> [(Int, a)]
 problem10 = (map encoder) . problem9

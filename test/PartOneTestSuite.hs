@@ -108,7 +108,13 @@ problem7TestSuite :: TestTree
 problem7TestSuite =
   testGroup
     "Seventh problem"
-    [flattenListWithOneElement, flattenList, flattenEmptyList]
+    [ flattenListWithOneElement
+    , flattenList
+    , flattenEmptyList
+    , flattenListWithOneElement'
+    , flattenList'
+    , flattenEmptyList'
+    ]
 
 flattenListWithOneElement =
   testCase "Flatten list of one element" $
@@ -125,17 +131,36 @@ flattenEmptyList =
   testCase "Flatten empty list" $
   assertEqual [] ([] :: [Int]) (problem7 (List []))
 
+flattenListWithOneElement' =
+  testCase "Flatten list of one element'" $
+  assertEqual [] [5] (problem7' (Elem 5))
+
+flattenList' =
+  testCase "Flatten list'" $
+  assertEqual
+    []
+    [1, 2, 3, 4, 5]
+    (problem7' (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]]))
+
+flattenEmptyList' =
+  testCase "Flatten empty list'" $
+  assertEqual [] ([] :: [Int]) (problem7' (List []))
+
 -- Eighth problem test suite
 problem8TestSuite :: TestTree
-problem8TestSuite = testGroup "Eighth problem" [compressString]
+problem8TestSuite = testGroup "Eighth problem" [compressString, compressString']
 
 compressString =
   testCase "Compress string" $
   assertEqual [] "abcade" (problem8 "aaaabccaadeeee")
 
+compressString' =
+  testCase "Compress string'" $
+  assertEqual [] "abcade" (problem8' "aaaabccaadeeee")
+
 -- Ninth problem test suite
 problem9TestSuite :: TestTree
-problem9TestSuite = testGroup "Ninth problem" [packCharList]
+problem9TestSuite = testGroup "Ninth problem" [packCharList, packCharList']
 
 packCharList =
   testCase "Pack char list" $
@@ -143,6 +168,14 @@ packCharList =
     []
     ["aaaa", "b", "cc", "aa", "d", "eeee"]
     (problem9
+       ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'])
+
+packCharList' =
+  testCase "Pack char list'" $
+  assertEqual
+    []
+    ["aaaa", "b", "cc", "aa", "d", "eeee"]
+    (problem9'
        ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'])
 
 -- Tenth problem test suite

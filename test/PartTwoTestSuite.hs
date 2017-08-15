@@ -21,7 +21,10 @@ partTwoTestSuite =
 
 -- Eleventh problem test suite
 problem11TestSuite :: TestTree
-problem11TestSuite = testGroup "Eleventh problem" [modifiedRunLengthEncode]
+problem11TestSuite =
+  testGroup
+    "Eleventh problem"
+    [modifiedRunLengthEncode, modifiedRunLengthEncode']
 
 modifiedRunLengthEncode =
   testCase "Modified run-length encoding" $
@@ -36,9 +39,23 @@ modifiedRunLengthEncode =
     ]
     (problem11 "aaaabccaadeeee")
 
+modifiedRunLengthEncode' =
+  testCase "Modified run-length encoding'" $
+  assertEqual
+    []
+    [ Multiple 4 'a'
+    , Single 'b'
+    , Multiple 2 'c'
+    , Multiple 2 'a'
+    , Single 'd'
+    , Multiple 4 'e'
+    ]
+    (problem11' "aaaabccaadeeee")
+
 -- Twelfth problem test suite
 problem12TestSuite :: TestTree
-problem12TestSuite = testGroup "Twelfth problem" [modifiedDecode]
+problem12TestSuite =
+  testGroup "Twelfth problem" [modifiedDecode, modifiedDecode']
 
 modifiedDecode =
   testCase "Modified run-length decoding" $
@@ -54,9 +71,24 @@ modifiedDecode =
        , Multiple 4 'e'
        ])
 
+modifiedDecode' =
+  testCase "Modified run-length decoding'" $
+  assertEqual
+    []
+    "aaaabccaadeeee"
+    (problem12'
+       [ Multiple 4 'a'
+       , Single 'b'
+       , Multiple 2 'c'
+       , Multiple 2 'a'
+       , Single 'd'
+       , Multiple 4 'e'
+       ])
+
 -- Thirteenth problem test suite
 problem13TestSuite :: TestTree
-problem13TestSuite = testGroup "Thirteenth problem" [directEncode]
+problem13TestSuite =
+  testGroup "Thirteenth problem" [directEncode, directEncode']
 
 directEncode =
   testCase "Direct run-length encoding" $
@@ -70,3 +102,16 @@ directEncode =
     , Multiple 4 'e'
     ]
     (problem13 "aaaabccaadeeee")
+
+directEncode' =
+  testCase "Direct run-length encoding'" $
+  assertEqual
+    []
+    [ Multiple 4 'a'
+    , Single 'b'
+    , Multiple 2 'c'
+    , Multiple 2 'a'
+    , Single 'd'
+    , Multiple 4 'e'
+    ]
+    (problem13' "aaaabccaadeeee")

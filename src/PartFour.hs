@@ -79,10 +79,10 @@ problem40 n = head [(a, b) | a <- primes, b <- primes, a + b == n]
   where
     primes = problem39 2 (n - 2)
 
--- Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition. 
+-- Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
 problem41 :: Integral a => a -> a -> [(a, a)]
 problem41 x y = map problem40 $ filter even [x .. y]
 
--- Very rarely, the primes are both bigger than say 50. Try to find out how many such cases there are in the range 2..3000. 
+-- Very rarely, the primes are both bigger than say 50. Try to find out how many such cases there are in the range 2..3000.
 problem41' :: Integral a => a -> a -> a -> [(a, a)]
 problem41' x y m = filter (\(a, b) -> a > m && b > m) $ problem41 x y
