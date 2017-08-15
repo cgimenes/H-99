@@ -16,8 +16,8 @@
 - [x] 10. Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
 
 ## Questions 11 to 20: Lists, continued
-- [ ] 11. Modified run-length encoding. Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists. 
-- [ ] 12. Decode a run-length encoded list. Given a run-length code list generated as specified in problem 11. Construct its uncompressed version. 
+- [x] 11. Modified run-length encoding. Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists. 
+- [x] 12. Decode a run-length encoded list. Given a run-length code list generated as specified in problem 11. Construct its uncompressed version. 
 - [ ] 13. Run-length encoding of a list (direct solution). Implement the so-called run-length encoding data compression method directly. I.e. don't explicitly create the sublists containing the duplicates, as in problem 9, but only count them. As in problem P11, simplify the result list by replacing the singleton lists (1 X) by X. 
 - [ ] 14. Duplicate the elements of a list. 
 - [ ] 15. Replicate the elements of a list a given number of times. 

@@ -9,7 +9,7 @@ partTwoTestSuite =
   testGroup
     "Part Two"
     [ problem11TestSuite
-    -- , problem12TestSuite
+    , problem12TestSuite
     -- , problem13TestSuite
     -- , problem14TestSuite
     -- , problem15TestSuite
@@ -35,3 +35,21 @@ modifiedRunLengthEncode =
     , Multiple 4 'e'
     ]
     (problem11 "aaaabccaadeeee")
+
+-- Twelfth problem test suite
+problem12TestSuite :: TestTree
+problem12TestSuite = testGroup "Twelfth problem" [modifiedDecode]
+
+modifiedDecode =
+  testCase "Modified run-length decoding" $
+  assertEqual
+    []
+    "aaaabccaadeeee"
+    (problem12
+       [ Multiple 4 'a'
+       , Single 'b'
+       , Multiple 2 'c'
+       , Multiple 2 'a'
+       , Single 'd'
+       , Multiple 4 'e'
+       ])
