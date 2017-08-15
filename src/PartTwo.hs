@@ -61,6 +61,16 @@ problem13' (x:xs)
 problem14 :: [a] -> [a]
 problem14 = concatMap (\x -> replicate 2 x)
 
+problem14' :: [a] -> [a]
+problem14' [] = []
+problem14' (x:xs) = x:x:problem14' xs
+
+problem14'' :: [a] -> [a]
+problem14'' = concatMap (\x -> [x,x])
+
+problem14''' :: [a] -> [a]
+problem14''' = concatMap (replicate 2)
+
 -- Replicate the elements of a list a given number of times.
 problem15 = error "Not implemented yet!"
 

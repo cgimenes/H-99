@@ -118,8 +118,20 @@ directEncode' =
 
 -- Fourteenth problem test suite
 problem14TestSuite :: TestTree
-problem14TestSuite = testGroup "Fourteenth problem" [duplicate]
+problem14TestSuite = testGroup "Fourteenth problem" [duplicate, duplicate', duplicate'', duplicate''']
 
 duplicate =
   testCase "Duplicate the elements of a list" $
   assertEqual [] [1, 1, 2, 2, 3, 3] (problem14 [1, 2, 3])
+
+duplicate' =
+  testCase "Duplicate the elements of a list'" $
+  assertEqual [] [1, 1, 2, 2, 3, 3] (problem14' [1, 2, 3])
+
+duplicate'' =
+  testCase "Duplicate the elements of a list''" $
+  assertEqual [] [1, 1, 2, 2, 3, 3] (problem14'' [1, 2, 3])
+
+duplicate''' =
+  testCase "Duplicate the elements of a list'''" $
+  assertEqual [] [1, 1, 2, 2, 3, 3] (problem14''' [1, 2, 3])
