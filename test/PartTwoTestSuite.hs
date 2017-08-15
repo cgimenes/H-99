@@ -12,7 +12,7 @@ partTwoTestSuite =
     , problem12TestSuite
     , problem13TestSuite
     , problem14TestSuite
-    -- , problem15TestSuite
+    , problem15TestSuite
     -- , problem16TestSuite
     -- , problem17TestSuite
     -- , problem19TestSuite
@@ -118,20 +118,35 @@ directEncode' =
 
 -- Fourteenth problem test suite
 problem14TestSuite :: TestTree
-problem14TestSuite = testGroup "Fourteenth problem" [duplicate, duplicate', duplicate'', duplicate''']
+problem14TestSuite =
+  testGroup
+    "Fourteenth problem"
+    [ duplicateElements
+    , duplicateElements'
+    , duplicateElements''
+    , duplicateElements'''
+    ]
 
-duplicate =
+duplicateElements =
   testCase "Duplicate the elements of a list" $
   assertEqual [] [1, 1, 2, 2, 3, 3] (problem14 [1, 2, 3])
 
-duplicate' =
+duplicateElements' =
   testCase "Duplicate the elements of a list'" $
   assertEqual [] [1, 1, 2, 2, 3, 3] (problem14' [1, 2, 3])
 
-duplicate'' =
+duplicateElements'' =
   testCase "Duplicate the elements of a list''" $
   assertEqual [] [1, 1, 2, 2, 3, 3] (problem14'' [1, 2, 3])
 
-duplicate''' =
+duplicateElements''' =
   testCase "Duplicate the elements of a list'''" $
   assertEqual [] [1, 1, 2, 2, 3, 3] (problem14''' [1, 2, 3])
+
+-- Fifteenth problem test suite
+problem15TestSuite :: TestTree
+problem15TestSuite = testGroup "Fifteenth problem" [replicateElements]
+
+replicateElements =
+  testCase "Replicate the elements of a list a given number of times" $
+  assertEqual [] "aaabbbccc" (problem15 "abc" 3)
