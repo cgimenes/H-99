@@ -10,7 +10,7 @@ partTwoTestSuite =
     "Part Two"
     [ problem11TestSuite
     , problem12TestSuite
-    -- , problem13TestSuite
+    , problem13TestSuite
     -- , problem14TestSuite
     -- , problem15TestSuite
     -- , problem16TestSuite
@@ -53,3 +53,20 @@ modifiedDecode =
        , Single 'd'
        , Multiple 4 'e'
        ])
+
+-- Thirteenth problem test suite
+problem13TestSuite :: TestTree
+problem13TestSuite = testGroup "Thirteenth problem" [directEncode]
+
+directEncode =
+  testCase "Direct run-length encoding" $
+  assertEqual
+    []
+    [ Multiple 4 'a'
+    , Single 'b'
+    , Multiple 2 'c'
+    , Multiple 2 'a'
+    , Single 'd'
+    , Multiple 4 'e'
+    ]
+    (problem13 "aaaabccaadeeee")
