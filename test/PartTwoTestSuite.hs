@@ -16,7 +16,7 @@ partTwoTestSuite =
     -- , problem16TestSuite
     -- , problem17TestSuite
     -- , problem19TestSuite
-    -- , problem20TestSuite
+    , problem20TestSuite
     ]
 
 -- Eleventh problem test suite
@@ -150,3 +150,23 @@ problem15TestSuite = testGroup "Fifteenth problem" [replicateElements]
 replicateElements =
   testCase "Replicate the elements of a list a given number of times" $
   assertEqual [] "aaabbbccc" (problem15 "abc" 3)
+
+-- Twenty problem test suite
+problem20TestSuite :: TestTree
+problem20TestSuite = testGroup "Twenty problem" [removeAt, removeAt', removeAt'', removeAt''']
+
+removeAt =
+  testCase "Drop every N'th element from a list" $
+  assertEqual [] ('b', "acd") (problem20 2 "abcd")
+
+removeAt' =
+  testCase "Drop every N'th element from a list" $
+  assertEqual [] ('b', "acd") (problem20' 2 "abcd")
+
+removeAt'' =
+  testCase "Drop every N'th element from a list" $
+  assertEqual [] (Just 'b', "acd") (problem20'' 2 "abcd")
+
+removeAt''' =
+  testCase "Drop every N'th element from a list" $
+  assertEqual [] ('b', "acd") (problem20''' 2 "abcd")

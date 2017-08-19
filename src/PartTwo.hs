@@ -88,4 +88,21 @@ problem18 = error "Not implemented yet!"
 problem19 = error "Not implemented yet!"
 
 -- Remove the K'th element from a list.
-problem20 = error "Not implemented yet!"
+problem20 :: Int -> [a] -> (a, [a])
+problem20 n xs = (head (drop 1 $ take n xs), (take (n - 1) xs) ++ (drop n xs))
+
+problem20' :: Int -> [a] -> (a, [a])
+problem20' n xs = (xs !! (n - 1), take (n - 1) xs ++ drop n xs)
+
+problem20'' :: Int -> [a] -> (Maybe a, [a])
+problem20'' n xs
+  | n > 0 && n <= length xs = (Just (xs !! index), take index xs ++ drop n xs)
+  | otherwise = (Nothing, xs)
+  where
+    index = n - 1
+
+problem20''' :: Int -> [a] -> (a, [a])
+problem20''' 1 (x:xs) = (x, xs)
+problem20''' n (x:xs) = (l, x : r)
+  where
+    (l, r) = problem20''' (n - 1) xs
