@@ -76,7 +76,11 @@ problem15 :: [a] -> Int -> [a]
 problem15 xs n = concatMap (replicate n) xs
 
 -- Drop every N'th element from a list.
-problem16 = error "Not implemented yet!"
+problem16 :: [a] -> Int -> [a]
+problem16 xs n =
+  if n < length xs
+    then take (n - 1) xs ++ problem16 (drop n xs) n
+    else xs
 
 -- Split a list into two parts; the length of the first part is given. Do not use any predefined predicates.
 problem17 = error "Not implemented yet!"

@@ -13,7 +13,7 @@ partTwoTestSuite =
     , problem13TestSuite
     , problem14TestSuite
     , problem15TestSuite
-    -- , problem16TestSuite
+    , problem16TestSuite
     -- , problem17TestSuite
     -- , problem19TestSuite
     , problem20TestSuite
@@ -151,9 +151,18 @@ replicateElements =
   testCase "Replicate the elements of a list a given number of times" $
   assertEqual [] "aaabbbccc" (problem15 "abc" 3)
 
+-- Sixteenth problem test suite
+problem16TestSuite :: TestTree
+problem16TestSuite = testGroup "Sixteenth problem" [dropEveryN]
+
+dropEveryN =
+  testCase "Drop every N'th element from a list" $
+  assertEqual [] "abdeghk" (problem16 "abcdefghik" 3)
+
 -- Twenty problem test suite
 problem20TestSuite :: TestTree
-problem20TestSuite = testGroup "Twenty problem" [removeAt, removeAt', removeAt'', removeAt''']
+problem20TestSuite =
+  testGroup "Twenty problem" [removeAt, removeAt', removeAt'', removeAt''']
 
 removeAt =
   testCase "Drop every N'th element from a list" $
