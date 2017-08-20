@@ -97,10 +97,15 @@ primesBetweenInterval =
 
 -- Forty problem test suite
 problem40TestSuite :: TestTree
-problem40TestSuite = testGroup "Forty problem" [goldbachConjecture]
+problem40TestSuite =
+  testGroup "Forty problem" [goldbachConjecture, goldbachConjecture']
 
 goldbachConjecture =
   testCase "Goldbach's conjecture" $ assertEqual [] (5, 23) (problem40 28)
+
+goldbachConjecture' =
+  testCase "Goldbach's conjecture (better performance)" $
+  assertEqual [] (5, 23) (problem40' 28)
 
 -- Forty-one problem test suite
 problem41TestSuite :: TestTree
