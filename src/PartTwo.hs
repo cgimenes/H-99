@@ -86,7 +86,8 @@ problem16 xs n =
 problem17 = error "Not implemented yet!"
 
 -- Extract a slice from a list. Given two indices, i and k, the slice is the list containing the elements between the i'th and k'th element of the original list (both limits included). Start counting the elements with 1.
-problem18 = error "Not implemented yet!"
+problem18 :: [a] -> Int -> Int -> [a]
+problem18 xs i k = drop (i - 1) $ take k xs
 
 -- Rotate a list N places to the left. Hint: Use the predefined functions length and (++).
 problem19 = error "Not implemented yet!"
