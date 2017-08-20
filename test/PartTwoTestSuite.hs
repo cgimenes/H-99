@@ -14,7 +14,7 @@ partTwoTestSuite =
     , problem14TestSuite
     , problem15TestSuite
     , problem16TestSuite
-    -- , problem17TestSuite
+    , problem17TestSuite
     , problem18TestSuite
     , problem19TestSuite
     , problem20TestSuite
@@ -159,6 +159,22 @@ problem16TestSuite = testGroup "Sixteenth problem" [dropEveryN]
 dropEveryN =
   testCase "Drop every N'th element from a list" $
   assertEqual [] "abdeghk" (problem16 "abcdefghik" 3)
+
+-- Seventeenth problem test suite
+problem17TestSuite :: TestTree
+problem17TestSuite = testGroup "Seventeenth problem" [split, split', split'']
+
+split =
+  testCase "Split a list into two parts" $
+  assertEqual [] ("abc", "defghik") (problem17 "abcdefghik" 3)
+
+split' =
+  testCase "Split a list into two parts" $
+  assertEqual [] ("abc", "defghik") (problem17' "abcdefghik" 3)
+
+split'' =
+  testCase "Split a list into two parts" $
+  assertEqual [] ("abc", "defghik") (problem17'' "abcdefghik" 3)
 
 -- Eighteenth problem test suite
 problem18TestSuite :: TestTree

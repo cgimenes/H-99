@@ -83,7 +83,27 @@ problem16 xs n =
     else xs
 
 -- Split a list into two parts; the length of the first part is given. Do not use any predefined predicates.
-problem17 = error "Not implemented yet!"
+problem17 :: [a] -> Int -> ([a], [a])
+problem17 xs n = move ([], xs) n
+  where
+    move :: ([a], [a]) -> Int -> ([a], [a])
+    move (a, b) 0 = (a, b)
+    move (a, b:bs) i = move (a ++ [b], bs) (i - 1)
+
+problem17' :: [a] -> Int -> ([a], [a])
+problem17' [] _ = ([], [])
+problem17' l@(x:xs) n
+  | n > 0 = (x : ys, zs)
+  | otherwise = ([], l)
+  where
+    (ys, zs) = problem17' xs (n - 1)
+
+problem17'' :: [a] -> Int -> ([a], [a])
+problem17'' (x:xs) n
+  | n > 0 =
+    let (f, l) = problem17'' xs (n - 1)
+    in (x : f, l)
+problem17'' xs _ = ([], xs)
 
 -- Extract a slice from a list. Given two indices, i and k, the slice is the list containing the elements between the i'th and k'th element of the original list (both limits included). Start counting the elements with 1.
 problem18 :: [a] -> Int -> Int -> [a]
