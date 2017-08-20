@@ -1,7 +1,15 @@
 module PartThree where
 
 -- Insert an element at a given position into a list.
-problem21 = error "Not implemented yet!"
+problem21 :: a -> [a] -> Int -> [a]
+problem21 x xs i = take index xs ++ [x] ++ drop index xs
+  where
+    index = (i - 1)
+
+problem21' :: a -> [a] -> Int -> [a]
+problem21' x xs i = first ++ x : second
+  where
+    (first, second) = splitAt (i - 1) xs
 
 -- Create a list containing all integers within a given range.
 problem22 = error "Not implemented yet!"

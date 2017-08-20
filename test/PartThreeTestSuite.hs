@@ -20,8 +20,13 @@ partThreeTestSuite =
 
 -- Twenty-first problem test suite
 problem21TestSuite :: TestTree
-problem21TestSuite = testGroup "Twenty-first problem" [insertIntoList]
+problem21TestSuite =
+  testGroup "Twenty-first problem" [insertIntoList, insertIntoList']
 
 insertIntoList =
   testCase "Insert an element at a given position into a list" $
   assertEqual [] "aXbcd" (problem21 'X' "abcd" 2)
+
+insertIntoList' =
+  testCase "Insert an element at a given position into a list'" $
+  assertEqual [] "aXbcd" (problem21' 'X' "abcd" 2)
