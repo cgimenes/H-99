@@ -16,7 +16,7 @@ partTwoTestSuite =
     , problem16TestSuite
     -- , problem17TestSuite
     , problem18TestSuite
-    -- , problem19TestSuite
+    , problem19TestSuite
     , problem20TestSuite
     ]
 
@@ -170,6 +170,25 @@ slice =
     []
     "cdefg"
     (problem18 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] 3 7)
+
+-- Nineteenth problem test suite
+problem19TestSuite :: TestTree
+problem19TestSuite =
+  testGroup "Nineteenth problem" [rotateList, reverseRotateList]
+
+rotateList =
+  testCase "Rotate a list N places to the left." $
+  assertEqual
+    []
+    "defghabc"
+    (problem19 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3)
+
+reverseRotateList =
+  testCase "Rotate a list N places to the right." $
+  assertEqual
+    []
+    "ghabcdef"
+    (problem19 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] (-2))
 
 -- Twenty problem test suite
 problem20TestSuite :: TestTree
