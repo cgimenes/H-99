@@ -13,7 +13,7 @@ partThreeTestSuite =
     -- , problem23TestSuite
     -- , problem24TestSuite
     -- , problem25TestSuite
-    -- , problem26TestSuite
+    , problem26TestSuite
     -- , problem27TestSuite
     -- , problem28TestSuite
     ]
@@ -42,3 +42,92 @@ range =
 range' =
   testCase "Create a list containing all integers within a given range'" $
   assertEqual [] [4, 5, 6, 7, 8, 9] (problem22' 4 9)
+
+-- Twenty-sixth problem test suite
+problem26TestSuite :: TestTree
+problem26TestSuite =
+  testGroup "Twenty-sixth problem" [combinations, combinations', combinations'']
+
+combinations =
+  testCase
+    "Generate the combinations of K distinct objects chosen from the N elements of a list" $
+  assertEqual
+    []
+    [ "abc"
+    , "abd"
+    , "abe"
+    , "abf"
+    , "acd"
+    , "ace"
+    , "acf"
+    , "ade"
+    , "adf"
+    , "aef"
+    , "bcd"
+    , "bce"
+    , "bcf"
+    , "bde"
+    , "bdf"
+    , "bef"
+    , "cde"
+    , "cdf"
+    , "cef"
+    , "def"
+    ]
+    (problem26 3 "abcdef")
+
+combinations' =
+  testCase
+    "Generate the combinations of K distinct objects chosen from the N elements of a list'" $
+  assertEqual
+    []
+    [ "abc"
+    , "abd"
+    , "abe"
+    , "abf"
+    , "acd"
+    , "ace"
+    , "acf"
+    , "ade"
+    , "adf"
+    , "aef"
+    , "bcd"
+    , "bce"
+    , "bcf"
+    , "bde"
+    , "bdf"
+    , "bef"
+    , "cde"
+    , "cdf"
+    , "cef"
+    , "def"
+    ]
+    (problem26' 3 "abcdef")
+
+combinations'' =
+  testCase
+    "Generate the combinations of K distinct objects chosen from the N elements of a list''" $
+  assertEqual
+    []
+    [ "abc"
+    , "abd"
+    , "abe"
+    , "abf"
+    , "acd"
+    , "ace"
+    , "acf"
+    , "ade"
+    , "adf"
+    , "aef"
+    , "bcd"
+    , "bce"
+    , "bcf"
+    , "bde"
+    , "bdf"
+    , "bef"
+    , "cde"
+    , "cdf"
+    , "cef"
+    , "def"
+    ]
+    (problem26'' 3 "abcdef")

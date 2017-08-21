@@ -31,7 +31,26 @@ problem24 = error "Not implemented yet!"
 problem25 = error "Not implemented yet!"
 
 -- Generate the combinations of K distinct objects chosen from the N elements of a list. In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list.
-problem26 = error "Not implemented yet!"
+problem26 :: Int -> [a] -> [[a]]
+problem26 k l@(x:xs)
+  | k == 0 = []
+  | k == length l = [l]
+  | k == 1 = [x] : problem26 k xs
+  | otherwise = (map (\y -> x : y) $ problem26 (k - 1) xs) ++ problem26 k xs
+
+problem26' :: Int -> [a] -> [[a]]
+problem26' 0 _ = [[]]
+problem26' n xs =
+  [ xs !! i : x
+  | i <- [0 .. (length xs) - 1]
+  , x <- problem26' (n - 1) (drop (i + 1) xs)
+  ]
+
+problem26'' :: Int -> [a] -> [[a]]
+problem26'' 0 _ = [[]]
+problem26'' _ [] = []
+problem26'' n (x:xs) =
+  (map (x :) (problem26'' (n - 1) xs)) ++ (problem26'' n xs)
 
 -- Group the elements of a set into disjoint subsets.
 -- a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.

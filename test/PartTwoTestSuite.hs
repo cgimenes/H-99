@@ -169,11 +169,11 @@ split =
   assertEqual [] ("abc", "defghik") (problem17 "abcdefghik" 3)
 
 split' =
-  testCase "Split a list into two parts" $
+  testCase "Split a list into two parts'" $
   assertEqual [] ("abc", "defghik") (problem17' "abcdefghik" 3)
 
 split'' =
-  testCase "Split a list into two parts" $
+  testCase "Split a list into two parts''" $
   assertEqual [] ("abc", "defghik") (problem17'' "abcdefghik" 3)
 
 -- Eighteenth problem test suite
@@ -193,14 +193,14 @@ problem19TestSuite =
   testGroup "Nineteenth problem" [rotateList, reverseRotateList]
 
 rotateList =
-  testCase "Rotate a list N places to the left." $
+  testCase "Rotate a list N places to the left" $
   assertEqual
     []
     "defghabc"
     (problem19 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3)
 
 reverseRotateList =
-  testCase "Rotate a list N places to the right." $
+  testCase "Rotate a list N places to the right" $
   assertEqual
     []
     "ghabcdef"
@@ -216,13 +216,13 @@ removeAt =
   assertEqual [] ('b', "acd") (problem20 2 "abcd")
 
 removeAt' =
-  testCase "Drop every N'th element from a list" $
+  testCase "Drop every N'th element from a list'" $
   assertEqual [] ('b', "acd") (problem20' 2 "abcd")
 
 removeAt'' =
-  testCase "Drop every N'th element from a list" $
+  testCase "Drop every N'th element from a list''" $
   assertEqual [] (Just 'b', "acd") (problem20'' 2 "abcd")
 
 removeAt''' =
-  testCase "Drop every N'th element from a list" $
+  testCase "Drop every N'th element from a list'''" $
   assertEqual [] ('b', "acd") (problem20''' 2 "abcd")

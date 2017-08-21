@@ -47,7 +47,7 @@ problem32TestSuite :: TestTree
 problem32TestSuite = testGroup "Thirty-second problem" [greatestCommonDivisor]
 
 greatestCommonDivisor =
-  testCase "GreatestCommonDivisor" $
+  testCase "Greatest Common Divisor" $
   assertEqual
     []
     [9, 3, 3]
