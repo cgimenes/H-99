@@ -9,7 +9,7 @@ partThreeTestSuite =
   testGroup
     "Part Three"
     [ problem21TestSuite
-    -- , problem22TestSuite
+    , problem22TestSuite
     -- , problem23TestSuite
     -- , problem24TestSuite
     -- , problem25TestSuite
@@ -30,3 +30,15 @@ insertIntoList =
 insertIntoList' =
   testCase "Insert an element at a given position into a list'" $
   assertEqual [] "aXbcd" (problem21' 'X' "abcd" 2)
+
+-- Twenty-second problem test suite
+problem22TestSuite :: TestTree
+problem22TestSuite = testGroup "Twenty-second problem" [range, range']
+
+range =
+  testCase "Create a list containing all integers within a given range" $
+  assertEqual [] [4, 5, 6, 7, 8, 9] (problem22 4 9)
+
+range' =
+  testCase "Create a list containing all integers within a given range'" $
+  assertEqual [] [4, 5, 6, 7, 8, 9] (problem22' 4 9)

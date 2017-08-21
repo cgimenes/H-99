@@ -29,7 +29,7 @@
 
 ## Questions 21 to 28: Lists again
 - [x] 21. Insert an element at a given position into a list.
-- [ ] 22. Create a list containing all integers within a given range.
+- [x] 22. Create a list containing all integers within a given range.
 - [ ] 23. Extract a given number of randomly selected elements from a list.
 - [ ] 24. Lotto: Draw N different random numbers from the set 1..M.
 - [ ] 25. Generate a random permutation of the elements of a list.

@@ -12,7 +12,14 @@ problem21' x xs i = first ++ x : second
     (first, second) = splitAt (i - 1) xs
 
 -- Create a list containing all integers within a given range.
-problem22 = error "Not implemented yet!"
+problem22 :: Int -> Int -> [Int]
+problem22 n m = [n .. m]
+
+problem22' :: Int -> Int -> [Int]
+problem22' n m
+  | n == m = [n]
+  | n < m = n : (problem22' (n + 1) m)
+  | n > m = n : (problem22' (n - 1) m)
 
 -- Extract a given number of randomly selected elements from a list.
 problem23 = error "Not implemented yet!"
