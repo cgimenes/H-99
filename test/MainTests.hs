@@ -1,3 +1,4 @@
+import PartFiveTestSuite
 import PartFourTestSuite
 import PartOneTestSuite
 import PartThreeTestSuite
@@ -10,4 +11,9 @@ tests :: TestTree
 tests =
   testGroup
     "Haskell 99 problems tests"
-    [partOneTestSuite, partTwoTestSuite, partThreeTestSuite, partFourTestSuite]
+    [ partOneTestSuite
+    , partTwoTestSuite
+    , partThreeTestSuite
+    , partFourTestSuite
+    , partFiveTestSuite
+    ]
