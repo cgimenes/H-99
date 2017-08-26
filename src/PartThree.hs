@@ -59,5 +59,22 @@ problem27 = error "Not implemented yet!"
 
 -- Sorting a list of lists according to length of sublists
 -- a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
+problem28a :: [[a]] -> [[a]]
+problem28a l
+  | length l < 2 = l
+  | otherwise = merge (problem28a fp) (problem28a sp)
+  where
+    (fp, sp) = splitAt index l
+    index =
+      if r == 0
+        then d
+        else d + 1
+    (d, r) = quotRem (length l) 2
+    merge [] b = b
+    merge a [] = a
+    merge a b
+      | (length $ head a) > (length $ head b) = head b : (merge a $ tail b)
+      | otherwise = head a : merge (tail a) b
+
 -- b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 problem28 = error "Not implemented yet!"

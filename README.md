@@ -38,7 +38,7 @@
 - [ ] 27. a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
 - [ ] 27. b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
 - [ ] 28. Sorting a list of lists according to length of sublists
-- [ ] 28. a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
+- [x] 28. a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
 - [ ] 28. b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 
 ## Questions 31 to 41: Arithmetic

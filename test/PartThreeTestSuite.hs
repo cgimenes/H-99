@@ -15,7 +15,7 @@ partThreeTestSuite =
     -- , problem25TestSuite
     , problem26TestSuite
     -- , problem27TestSuite
-    -- , problem28TestSuite
+    , problem28TestSuite
     ]
 
 -- Twenty-first problem test suite
@@ -131,3 +131,14 @@ combinations'' =
     , "def"
     ]
     (problem26'' 3 "abcdef")
+
+-- Twenty-eigth problem test suite
+problem28TestSuite :: TestTree
+problem28TestSuite = testGroup "Twenty-eigth problem" [lsort]
+
+lsort =
+  testCase "Sorting a list of lists according to length of sublists" $
+  assertEqual
+    []
+    ["o", "de", "de", "mn", "abc", "fgh", "ijkl"]
+    (problem28a ["abc", "de", "fgh", "de", "ijkl", "mn", "o"])
