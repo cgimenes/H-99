@@ -134,7 +134,7 @@ combinations'' =
 
 -- Twenty-eigth problem test suite
 problem28TestSuite :: TestTree
-problem28TestSuite = testGroup "Twenty-eigth problem" [lsort]
+problem28TestSuite = testGroup "Twenty-eigth problem" [lsort, lfsort]
 
 lsort =
   testCase "Sorting a list of lists according to length of sublists" $
@@ -142,3 +142,11 @@ lsort =
     []
     ["o", "de", "de", "mn", "abc", "fgh", "ijkl"]
     (problem28a ["abc", "de", "fgh", "de", "ijkl", "mn", "o"])
+
+lfsort =
+  testCase
+    "Sort the elements of a list according to their sublists' length frequency" $
+  assertEqual
+    []
+    ["ijkl", "o", "abc", "fgh", "de", "de", "mn"]
+    (problem28b ["abc", "de", "fgh", "de", "ijkl", "mn", "o"])

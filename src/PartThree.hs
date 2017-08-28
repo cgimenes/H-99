@@ -32,6 +32,7 @@ problem25 = error "Not implemented yet!"
 
 -- Generate the combinations of K distinct objects chosen from the N elements of a list. In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list.
 problem26 :: Int -> [a] -> [[a]]
+problem26 _ [] = []
 problem26 k l@(x:xs)
   | k == 0 = []
   | k == length l = [l]
@@ -77,4 +78,13 @@ problem28a l
       | otherwise = head a : merge (tail a) b
 
 -- b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
-problem28 = error "Not implemented yet!"
+problem28b :: [[a]] -> [[a]]
+problem28b l = flatten $ problem28a $ foldr aggregate [] l
+  where
+    flatten :: [[a]] -> [a]
+    flatten = foldr (\x acc -> x ++ acc) []
+    aggregate e [] = [[e]]
+    aggregate e (x:xs) =
+      if length e == length (head x)
+        then ([e] ++ x) : xs
+        else (aggregate e xs) ++ [x]
