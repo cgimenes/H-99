@@ -10,7 +10,7 @@ partFiveTestSuite =
     "Part Five"
     [ problem46TestSuite
     , problem47TestSuite
-    -- , problem48TestSuite
+    , problem48TestSuite
     -- , problem49TestSuite
     -- , problem50TestSuite
     ]
@@ -45,3 +45,25 @@ truthTableOperators =
     , (False, False, False)
     ]
     (problem47 (\a b -> a `and'` (a `or'` not b)))
+
+-- Forty-Eighth problem test suite
+problem48TestSuite :: TestTree
+problem48TestSuite = testGroup "Forty-Eighth problem" [truthTableN]
+
+truthTableN =
+  testCase
+    "Truth table of a given logical expression using operators in N variables" $
+  assertEqual
+    []
+    [ ([True, True, True], True)
+    , ([True, True, False], True)
+    , ([True, False, True], True)
+    , ([True, False, False], True)
+    , ([False, True, True], True)
+    , ([False, True, False], True)
+    , ([False, False, True], True)
+    , ([False, False, False], True)
+    ]
+    (problem48
+       3
+       (\[a, b, c] -> a `and'` (b `or'` c) `equ'` a `and'` b `or'` a `and'` c))
