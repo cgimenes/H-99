@@ -1,5 +1,19 @@
 module PartThree where
 
+import Data.Function
+import Data.List
+import Data.Ord (comparing)
+
+-- Helper predicates
+groupBy' :: (a -> a -> Bool) -> [a] -> [[a]]
+groupBy' eq l = foldr group' [] l
+  where
+    group' e [] = [[e]]
+    group' e (x:xs) =
+      if eq e $ head x
+        then ([e] ++ x) : xs
+        else (group' e xs) ++ [x]
+
 -- Insert an element at a given position into a list.
 problem21 :: a -> [a] -> Int -> [a]
 problem21 x xs i = take index xs ++ [x] ++ drop index xs
@@ -77,14 +91,21 @@ problem28a l
       | (length $ head a) > (length $ head b) = head b : (merge a $ tail b)
       | otherwise = head a : merge (tail a) b
 
+problem28a' :: [[a]] -> [[a]]
+problem28a' = sortOn length
+
+problem28a'' :: [[a]] -> [[a]]
+problem28a'' = sortBy (comparing length)
+
+problem28a''' :: [[a]] -> [[a]]
+problem28a''' = sortBy (compare `on` length)
+
 -- b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
 problem28b :: [[a]] -> [[a]]
-problem28b l = flatten $ problem28a $ foldr aggregate [] l
+problem28b l = flatten $ problem28a $ groupBy' ((==) `on` length) l
   where
     flatten :: [[a]] -> [a]
     flatten = foldr (\x acc -> x ++ acc) []
-    aggregate e [] = [[e]]
-    aggregate e (x:xs) =
-      if length e == length (head x)
-        then ([e] ++ x) : xs
-        else (aggregate e xs) ++ [x]
+
+problem28b' :: [[a]] -> [[a]]
+problem28b' = concat . problem28a' . groupBy ((==) `on` length) . problem28a'
