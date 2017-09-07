@@ -11,7 +11,7 @@ partFiveTestSuite =
     [ problem46TestSuite
     , problem47TestSuite
     , problem48TestSuite
-    -- , problem49TestSuite
+    , problem49TestSuite
     -- , problem50TestSuite
     ]
 
@@ -67,3 +67,30 @@ truthTableN =
     (problem48
        3
        (\[a, b, c] -> a `and'` (b `or'` c) `equ'` a `and'` b `or'` a `and'` c))
+
+-- Forty-Ninth problem test suite
+problem49TestSuite :: TestTree
+problem49TestSuite =
+  testGroup "Forty-Ninth problem" [grayCode, grayCode', grayCode'']
+
+grayCode =
+  testCase "Gray codes" $
+  assertEqual
+    []
+    ["000", "001", "011", "010", "110", "111", "101", "100"]
+    (problem49 3)
+
+grayCode' =
+  testCase "Gray codes'" $
+  assertEqual
+    []
+    ["000", "001", "011", "010", "110", "111", "101", "100"]
+    (problem49' 3)
+
+grayCode'' =
+  testCase "Gray codes''" $
+  assertEqual
+    []
+    ["000", "100", "010", "110", "001", "101", "011", "111"]
+    (problem49'' 3)
+

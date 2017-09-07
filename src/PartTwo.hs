@@ -18,14 +18,14 @@ encodeElement' :: Eq a => (Int, a) -> ListItem a
 encodeElement' (1, x) = Single x
 encodeElement' (n, x) = Multiple n x
 
--- Modified run-length encoding. Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
+-- Modified run-length encoding.
 problem11 :: Eq a => [a] -> [ListItem a]
 problem11 = (map encodeElement) . problem10
 
 problem11' :: Eq a => [a] -> [ListItem a]
 problem11' = (map encodeElement') . problem10
 
--- Decode a run-length encoded list. Given a run-length code list generated as specified in problem 11. Construct its uncompressed version.
+-- Decode a run-length encoded list.
 problem12 :: Eq a => [ListItem a] -> [a]
 problem12 = foldr ((++) . decoder) []
   where
@@ -38,7 +38,7 @@ problem12' = concatMap decoder
     decoder (Single x) = [x]
     decoder (Multiple n x) = replicate n x
 
--- Run-length encoding of a list (direct solution). Implement the so-called run-length encoding data compression method directly. I.e. don't explicitly create the sublists containing the duplicates, as in problem 9, but only count them. As in problem P11, simplify the result list by replacing the singleton lists (1 X) by X.
+-- Run-length encoding of a list (direct solution).
 problem13 :: Eq a => [a] -> [ListItem a]
 problem13 = (map encodeElement) . foldr func []
   where
@@ -82,7 +82,7 @@ problem16 xs n =
     then take (n - 1) xs ++ problem16 (drop n xs) n
     else xs
 
--- Split a list into two parts; the length of the first part is given. Do not use any predefined predicates.
+-- Split a list into two parts.
 problem17 :: [a] -> Int -> ([a], [a])
 problem17 xs n = move ([], xs) n
   where
@@ -105,13 +105,13 @@ problem17'' (x:xs) n
     in (x : f, l)
 problem17'' xs _ = ([], xs)
 
--- Extract a slice from a list. Given two indices, i and k, the slice is the list containing the elements between the i'th and k'th element of the original list (both limits included). Start counting the elements with 1.
+-- Extract a slice from a list.
 problem18 :: [a] -> Int -> Int -> [a]
 problem18 _ 0 _ = []
 problem18 _ _ 0 = []
 problem18 xs i k = drop (i - 1) $ take k xs
 
--- Rotate a list N places to the left. Hint: Use the predefined functions length and (++).
+-- Rotate a list N places to the left.
 problem19 :: [a] -> Int -> [a]
 problem19 [] _ = []
 problem19 xs 0 = xs

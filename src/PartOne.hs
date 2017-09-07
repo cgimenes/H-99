@@ -67,7 +67,7 @@ problem8' x =
     [last x]
     x
 
--- Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists.
+-- Pack consecutive duplicates of list elements into sublists.
 -- This problem was not solved by me!
 problem9 :: Eq a => [a] -> [[a]]
 problem9 = foldr func []
@@ -86,7 +86,7 @@ problem9' (x:xs)
   where
     (matched, rest) = span (== x) xs
 
--- Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
+-- Run-length encoding of a list.
 problem10 :: Eq a => [a] -> [(Int, a)]
 problem10 = (map encoder) . problem9
   where

@@ -1,7 +1,7 @@
 # H-99
 [Ninety-Nine Haskell Problems](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems)
 
-# The problems ![Progress](http://progressed.io/bar/55)
+# The problems ![Progress](http://progressed.io/bar/54)
 
 ## Questions 1 to 10: Lists
 - [x] 1. Find the last element of a list.
@@ -38,7 +38,7 @@
 - [ ] 27A. Generate all the possibilities and returns them in a list.
 - [ ] 27B. Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
 - [x] 28. Sorting a list of lists according to length of sublists
-- [x] 28A. Sort the elements of this list according to their length. 
+- [x] 28A. Sort the elements of this list according to their length.
 - [x] 28B. Sort the elements of this list according to their length frequency.
 
 ## Skipped
@@ -68,7 +68,7 @@
 - [x] 46. Write a predicate table/3 which prints the truth table of a given logical expression in two variables.
 - [x] 47. Truth tables for logical expressions (2).
 - [x] 48. Truth tables for logical expressions (3).
-- [ ] 49. Gray codes.
+- [x] 49. Gray codes.
 - [ ] 50. Huffman codes.
 
 ## Skipped
